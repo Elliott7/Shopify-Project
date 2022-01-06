@@ -1,0 +1,353 @@
+{{ 'base.css' | asset_url | stylesheet_tag }}
+<section class="page-width">
+<!--   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}"> -->
+<!--     <div class="product__info-wrapper grid__item"> -->
+      <div id="ProductInfo-{{ section.id }}" class="product__info-container {% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
+<!--         {%- assign product_form_id = 'product-form-' | append: section.id -%} -->
+		<div class="grid__item">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        
+        {%- when 'case_diameter' -%}
+              <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.case_diameter_title -}}</span>
+              <span>{{ product.metafields.my_fields.case_diameter_mm_ | escape }}</span>
+              
+        {%- when 'movement' -%}
+              <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.movement_title -}}</span>
+              <span>{{ product.metafields.my_fields.movement | escape }}</span>
+        {%- when 'case_material' -%}
+             <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.case_material_title -}}</span>
+              <span>{{ product.metafields.my_fields.case_material | escape }}</span>              
+        {%- when 'case_thickness' -%}
+             <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.case_thickness_title -}}</span>
+             <span>{{ product.metafields.my_fields.case_thickness_mm_ | escape }}</span>
+              
+        {%- when 'watch_weight' -%}
+              <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.watch_weight_title -}}</span>
+              <span>{{ product.metafields.my_fields.watch_weight_g_ | escape }}</span>
+              
+        {%- when 'water_resistance' -%}
+              <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.water_resistance_title -}}</span>
+              <span>{{ product.metafields.my_fields.water_resistance | escape }}</span>
+	       
+        {%- when 'band' -%}
+              <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.band_title -}}</span>
+              <span>{{ product.metafields.my_fields.band | escape }}</span>
+		       
+        {%- when 'case_colour' -%}
+              <span class="metafields-titles {% if block.settings.text_style == 'uppercase' %}to-upper{% elsif block.settings.text_style == 'capitalize' %}to-capitalize{% elsif block.settings.text_style == 'lowercase' %}to-lower{% endif%}">{{- block.settings.case_colour_title -}}</span>
+              <span>{{ product.metafields.my_fields.case_colour | escape }}</span>
+        
+          
+        {%- endcase -%}
+        {%- endfor -%}
+        </div>
+        </div>
+<!--     </div> -->
+<!--   </div> -->
+</section>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "My Test Section",
+  	"blocks": [
+  	{
+      "type": "case_diameter",
+      "name": "Case Diameter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "case_diameter_title",
+          "default": "Case Diameter",
+          "label": "Case Diameter - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    },
+  	{
+      "type": "case_thickness",
+      "name": "Case Thickness",
+      "settings": [
+        {
+          "type": "text",
+          "id": "case_thickness_title",
+          "default": "Case Thickness",
+          "label": "Case Thickness - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    },
+  	{
+      "type": "watch_weight",
+      "name": "Watch Weight",
+      "settings": [
+        {
+          "type": "text",
+          "id": "watch_weight_title",
+          "default": "Watch Weight",
+          "label": "Watch Weight - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    },
+  	{
+      "type": "water_resistance",
+      "name": "Water Resistance",
+      "settings": [
+  		{
+          "type": "text",
+          "id": "water_resistance_title",
+          "default": "Water Resistance",
+          "label": "Water Resistance - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    },
+  	{
+      "type": "band",
+      "name": "Band",
+      "settings": [
+  		{
+          "type": "text",
+          "id": "band_title",
+          "default": "Band",
+          "label": "Band - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    },
+  	{
+      "type": "case_colour",
+      "name": "Case Colour",
+      "settings": [
+  		{
+          "type": "text",
+          "id": "case_colour_title",
+          "default": "Case Colour",
+          "label": "Case Colour - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    },
+  	{
+      "type": "case_material",
+      "name": "Case Material",
+      "settings": [
+  		{
+          "type": "text",
+          "id": "case_material_title",
+          "default": "Case Material",
+          "label": "Case Material - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    },
+  	{
+      "type": "movement",
+      "name": "Movement",
+      "settings": [
+  		{
+          "type": "text",
+          "id": "movement_title",
+          "default": "Movement",
+          "label": "Movement - Title"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            }
+          ],
+          "default": "uppercase",
+          "label": "Text Style"
+        }
+  	  ]
+    }
+  ],
+    "settings": [],
+	"presets": [
+		{
+			"category": "Custom Content",
+			"name": "My Test Section"
+
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+ 
+/*  Metafield Additions  */
+.metafields-titles{
+  color: #afafaf;
+  font-weight: 700;
+  letter-spacing: .05em;
+  display: block;
+  margin: 0;
+  margin-top: 10px
+}
+.to-upper{
+  text-transform: uppercase;
+}
+  
+.to-capitalize{
+    text-transform: capitalize;
+  }
+  
+.to-lower{
+    text-transform: lowercase;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

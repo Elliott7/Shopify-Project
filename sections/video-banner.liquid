@@ -1,0 +1,209 @@
+<div class="custom-video-container">
+  <video autoplay muted loop playsinline class="custom-video-banner">
+    <source src="https://cdn.shopify.com/s/files/1/0550/7134/2661/files/My_Movie2.mp4?v=1641343345">
+  </video>
+  {% for block in section.blocks %}
+  	{% case block.type %}
+    {% when 'text_overlay' %}
+  	  <div {{block.shopify_attributes}} class="custom-video-text {{ block.settings.background_color }} {{ block.settings.x-axis }} {{ block.settings.y-axis }}">
+  		<h1 class="video-title {{ block.settings.text_color }}" >{{ block.settings.text_overlay_input }}</h1>
+        <span class="video-desc {{ block.settings.text_color }}">{{ block.settings.text_overlay_under_input }}</span>
+  	  </div>
+  	{% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Custom Video Banner",
+	"blocks": [ 
+		{
+      	"type": "text_overlay",
+      	"name": "Text Overlay",
+	  	"limit": 1,
+      	"settings": [
+        	  	{
+          		"type": "text",
+          		"id": "text_overlay_input",
+          		"default": "Royal Swan Watches",
+          		"label": "Title"
+				},
+				{
+          		"type": "text",
+          		"id": "text_overlay_under_input",
+          		"default": "The Collection",
+          		"label": "Description"
+				},
+				{
+                "type": "select",
+                "id": "text_color",
+                "label": "Text Color",
+                "options": [
+                  {
+                    "value": "text-white",
+                    "label": "White"
+                  },
+                  {
+                    "value": "text-black",
+                    "label": "Black"
+                  }
+                  
+                ],
+                "default": "text-black"
+             	 },
+				{
+                "type": "select",
+                "id": "background_color",
+                "label": "Background Color",
+                "options": [
+                  {
+                    "value": "background-white",
+                    "label": "White"
+                  },
+                  {
+                    "value": "background-black",
+                    "label": "Black"
+                  },
+                  {
+                    "value": "background-transparent",
+                    "label": "Transparent"
+                  }
+                  
+                ],
+                "default": "background-white"
+              },
+				{
+                "type": "select",
+                "id": "x-axis",
+                "label": "X Axis Position",
+                "options": [
+                  {
+                    "value": "x-left",
+                    "label": "left"
+                  },
+                  {
+                    "value": "x-middle",
+                    "label": "middle"
+                  },
+                  {
+                    "value": "x-right",
+                    "label": "right"
+                  }
+                  
+                ],
+                "default": "x-right"
+              },
+				{
+                "type": "select",
+                "id": "y-axis",
+                "label": "Y Axis Position",
+                "options": [
+                  {
+                    "value": "y-bottom",
+                    "label": "bottom"
+                  },
+                  {
+                    "value": "y-middle",
+                    "label": "middle"
+                  },
+                  {
+                    "value": "y-top",
+                    "label": "top"
+                  }
+                  
+                ],
+                "default": "y-middle"
+              }
+			]
+		}
+		
+
+   ],
+	"settings": [],
+    "presets": [
+        {
+        "category": "Custom Content",
+        "name": "Custom Video Banner"
+        }
+        ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+.custom-video-container{
+	position: relative;
+	width: 100%;
+	background-color: #e5e5e5
+}
+.custom-video-banner{
+	width: 100%;
+	height: auto;
+	right: 0;
+	bottom: 0;
+}
+
+.custom-video-text{
+	position: absolute;
+	width: 450px;
+	height: 150px;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+  	justify-content: center;
+    align-items: center;
+}
+.video-title{
+	margin: 10px;
+}
+.video-title, .video-desc{
+	letter-spacing: 3px;
+}
+.text-white{
+	color:white !important;
+}
+.text-black{
+	color:black;
+}
+.background-white{
+	background-color: white;
+}
+.background-black{
+	background-color: black;
+}
+.background-transparent{
+	background-color: transparent;
+}
+.y-bottom{top: 80%;}
+.y-middle{top: 50%;}
+.y-top{top: 20%;}
+.x-left{left:20%;}
+.x-middle{left:50%;}
+.x-right{left:80%;}
+
+
+@media screen and (max-width: 1200px){
+	.custom-video-text{
+		width: 250px;
+	}
+	.video-title{
+		font-size: 20px;
+	}
+	.video-desc{
+	 	font-size: 12px;
+	}
+}
+@media screen and (max-width: 750px) {
+	.custom-video-text{
+		position: relative;
+		width: 100%;
+		height: 150px;
+		top: 0;
+		left: 0;
+		transform: translate(0, 0);
+	}
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

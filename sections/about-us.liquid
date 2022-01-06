@@ -1,0 +1,65 @@
+<div class="contact page-width page-width spaced-section">
+  <h1 class="about-us-heading">{{ section.settings.heading }}</h1>
+  <h2 class="title">QUALITY WATCHES AT AFFORDABLE PRICES</h2>
+  <p>Our mission is pretty simple. We’re committed to bringing you the top global brands in watches at affordable prices.</p>
+  <p>With over 30,000 happy customers served over ten years, Royal Swan is your go-to shopping experience whether you’re searching for a new watch for yourself or looking for a special gift.</p>
+  <p>We offer our customers an incredible range of watches, stocking hundreds of watches from more than 40 brands. From your everyday watches to our premium choices, such as Tag Heuer, Raymond Weil and Victorinox, all our watches are authentic and brand new.</p>
+  <p>We’re authorised stockists of quality watch brands, so when you purchase with us, you can be confident that you’re getting the real deal.</p>
+  <p>We also stay on top of new products in the market, so we can bring you the latest trends. Whether you want the newest style, or one of our classic watches, you will find the watches you need here.</p>
+  
+  <h3 class="title">AN AUSTRALIAN RETAILER, BORN FROM A GENUINE LOVE FOR WATCHES</h3>
+  <p>Ten years ago, we saw a demand in the Australian watch market. We knew that watch-lovers needed a greater range of online offerings, and at better prices.</p>
+  <p>We created Royal Swan Watches so that customers just like ourselves could find a large selection of quality watches at competitive prices, from the convenience of their own homes.</p>
+  <p>We now offer an extensive range of well-curated pieces, from men’s and women’s watches, to our latest statement jewellery collection, like diamond earrings, rings and bracelets.</p>
+  <p>We’ve never lost that original passion for watches. It’s what keeps us ticking along every day.</p>
+  
+  <h3 class="title">TAKING THE STRESS OUT OF BUYING</h3>
+  <p>We know that when you invest in a watch, it might be anything from a watch you wear all the time, to a special occasion watch. Whatever the case, you want to make sure you're buying a watch that will last.</p>
+  <p>That’s why we offer an additional one-year warranty on top of the standard manufacturer’s warranty. That applies to all our watches, with no exceptions!</p>
+  <p>We’re also proud to offer comprehensive after-sale Customer Service. That means you can get support in maintaining your watch and keeping it in its best condition.</p>
+  <p>You can also return your purchase easily within 30-days, no questions asked. This means you don’t have to stress about whether your chosen watch will suit your style. If it doesn’t, you can simply send it back! Check out the full details in our Returns Policy.  </p>
+  
+  <h3 class="title">OUR COMMITMENT TO YOU IS OUR TOP CUSTOMER SERVICE</h3>
+  <p>We’re fast and reliable. You get same-day, free shipping on any watch purchase within Australia.</p>
+  <p>We take care to ensure that all our watches are well-packed, so when you order with us, you can be assured that your purchase will get to you safely.</p>
+  <p>If you do have any product or order issues, we’re here to help. You can reach us easily through our Customer Support Service phone or email.</p>
+  
+</div>
+
+<div class="center view-all-button">
+  <a class="button button--primary" href="/collections/all">
+    View Watches
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "About Us",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "About Us",
+      "label": "Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.about-us-heading{
+	text-align: center;
+}
+.view-all-button{
+	margin-top: 100px;
+}
+
+
+{% endstylesheet %}

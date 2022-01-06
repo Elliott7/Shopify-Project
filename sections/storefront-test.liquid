@@ -1,0 +1,132 @@
+<div id="test-content">
+  <button id='butload'> load content</button>
+  
+  <button id='filter-e'> filter</button>
+</div>
+
+
+{{ "https://code.jquery.com/jquery-3.6.0.min.js" | script_tag }}
+<script>
+  
+  $(document).ready(function() {console.log('ready')}) // REMOVE
+
+  let query = `{
+                products(first: 50) {
+                  edges {
+                    node {
+                      id
+                      title
+                      images(first: 1) {
+                        edges {
+                          node {
+                            transformedSrc(maxHeight: 200, maxWidth: 200)
+                          }
+                        }
+                      }
+                      description
+                      handle
+                      priceRange {
+                        maxVariantPrice {
+                          amount
+                        }
+                      }
+                      tags
+                    }
+                  }
+                }
+              }`;
+  
+  function apiCall(query){
+    return fetch('https://royalswanwatches.myshopify.com/api/2022-01/graphql.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/graphql',
+        "Access-Control-Origin": "*",
+        "X-Shopify-Storefront-Access-Token": "83dc981a3602665003b4563143e0cc3c"
+      },
+      "body": query
+    }).then(response => response.json())
+      .catch((error) => {console.error('Error:', error);
+});;
+  }  
+  let tag1 = "Brown Leather" // CHANGE TO USER BASED TAGS
+  let tag2 = "Quartz" // CHANGE TO USER BASED TAGS
+  let myObj = []
+
+  
+//   Calls the query, adds the product data to an object for later use
+//   Used to grab all of the products to then be filtered by the users choices
+  function call(){
+    apiCall(query).then(response => {
+    console.log(response) // REMOVE
+    response.data.products.edges.forEach(product => {
+      let temp = {
+        handle: product.node.handle,
+        imgSrc: product.node.images.edges[0].node.transformedSrc,
+        price: product.node.priceRange.maxVariantPrice.amount,
+        title: product.node.title,
+        tags: product.node.tags,
+        id: product.node.id
+      }
+      myObj.push(temp)
+      console.log(myObj) // REMOVE
+      
+      })
+    })
+  }
+  
+  
+//	 Filters through the loaded products, using the users selections to filter down the products into a recommendation.
+//   The products are wrapped in a link tag that adds the product to cart and takes them directly to checkout
+  function filterResults(){
+  	let filteredResults = myObj.filter(product => product.tags.includes(tag1) && product.tags.includes(tag2)) // ADD THIRD TAG
+    filteredResults.forEach(product => {
+    const template = `
+	<a id='${product.id}' href=#>
+		<div>
+ 		  <h2>${product.title}</h2>
+ 		  <p>${product.price}</p>
+ 		  <img src=${product.imgSrc}></img>
+   		</div>
+		</a>
+ 		`;
+       $('#test-content').append(template);// CHANGE TO DIV IN SECTION
+      let newProd = product.id
+      jQuery.getJSON(`/products/${product.handle}.js`, function(product) {
+        let checkoutLink = document.getElementById(`${newProd}`)
+        checkoutLink.setAttribute('href', `https://royalswanwatches.myshopify.com/cart/${product.variants[0].id}:1?checkout`)
+        console.log(product.variants[0].id)})
+    })
+    
+  }
+  
+ 
+  
+  const loadButton = document.getElementById('butload') // CHANGE TO CORRECT BUTTON
+  loadButton.addEventListener('click', () => {call()});
+  
+  const filterButton = document.getElementById('filter-e') // CHANGE TO CORRECT BUTTON
+  filterButton.addEventListener('click', ()=> {filterResults()})
+  
+  
+
+  
+</script>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [],
+	"presets": [
+    {
+    "category": "Custom Content",
+    "name": "Storefront Test"}]
+
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

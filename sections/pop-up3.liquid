@@ -1,0 +1,507 @@
+
+{{ 'pop-up2.css' | asset_url | stylesheet_tag }}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<section class="page-width">
+    <div class="wizard-button-cont {{section.settings.button_location}}">
+        <button id="my-wizard-button">Find Your Perfect Watch</button>
+    </div>
+    
+</section>
+
+<div class="hide" id="my-wizard-container-container">
+    <div class="modal-backdrop hide" id="modal-backdrop"> </div>
+    <div class="my-wizard-container {{ section.settings.pop_up_width }}">
+       	<span id="wizard-close-button"></span>
+        <header>Find Your Perfect Watch</header>
+        <div class="wizard-progress-bar">
+            <div class="wizard-step">
+                <p>
+                    {{ section.settings.first_question_label }}
+                </p>
+                <div class="{{ section.settings.pop_up_width }} wizard-bullet">
+                    <span>1</span>
+                </div>
+                <div class="wizard-check fas fa-check"></div>
+            </div>
+            <div class="wizard-step">
+                <p>
+                    {{ section.settings.second_question_label }}
+                </p>
+                <div class="{{ section.settings.pop_up_width }} wizard-bullet">
+                    <span>2</span>
+                </div>
+                <div class="wizard-check fas fa-check"></div>
+            </div>
+            <div class="wizard-step">
+                <p>
+                    {{ section.settings.third_question_label }}
+                </p>
+                <div class="{{ section.settings.pop_up_width }} wizard-bullet">
+                    <span>3</span>
+                </div>
+                <div class="wizard-check fas fa-check"></div>
+            </div>
+            <div class="wizard-step">
+                <p>
+                    {{ section.settings.fourth_question_label }}
+                </p>
+                <div class="{{ section.settings.pop_up_width }} wizard-bullet">
+                    <span>4</span>
+                </div>
+                <div class="wizard-check fas fa-check"></div>
+            </div>
+        </div>
+
+
+        <div class="wizard-form-outer">
+            <form action="#">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                    {% when 'first_question' %}
+                        <div class="wizard-page slide-page" {{ block.shopify_attributes }}>
+                            <div>
+                                <div class="wizard-title">
+                                    {{ block.settings.first_question_q }}
+                                </div>
+                                <div class="wizard-field">
+                                    <label class="wizard-label">
+                                        {{ block.settings.first_question_option1 }}
+                                    </label>
+                                    <input type="radio" value="{{ block.settings.first_question_tag1 }}" name="question1" class="question-1-inputs">
+                                </div>
+                                <hr class="questions-line">
+                                <div class="wizard-field">
+                                    <label class="wizard-label">
+                                        {{ block.settings.first_question_option2 }}
+                                    </label>
+                                    <input type="radio" value="{{ block.settings.first_question_tag2 }}" name="question1" class="question-1-inputs">
+                                </div>
+                              	<hr class="questions-line">
+                                {% if block.settings.first_question_option3 != empty %}
+                                    <div class="wizard-field">
+                                        <label class="wizard-label">
+                                            {{ block.settings.first_question_option3 }}
+                                        </label>
+                                        <input type="radio" value="{{ block.settings.first_question_tag3 }}" name="question1" class="question-1-inputs">
+                                    </div>
+                              		<hr class="questions-line">
+                                {% endif %}
+                                {% if block.settings.first_question_option4 != empty %}
+                                    <div class="wizard-field">
+                                        <label class="wizard-label">
+                                            {{ block.settings.first_question_option4 }}
+                                        </label>
+                                        <input type="radio" value="{{ block.settings.first_question_tag4 }}" name="question1" class="question-1-inputs">
+                                    </div>
+                              		<hr class="questions-line">
+                                {% endif %}
+                                </div>
+                            <div>
+                                <div class="wizard-field">
+                                    <button class="firstNext next" disabled=true>Next</button>
+
+<!--                                     <button type="button" id="testing">testing</button> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    {% when 'second_question' %}
+                        <div class="wizard-page" {{ block.shopify_attributes }}>
+                            <div>
+
+                            <div class="wizard-title">
+                                {{ block.settings.second_question_q }}
+                            </div>
+                            <div class="wizard-field">
+                                <label class="wizard-label">
+                                    {{ block.settings.second_question_option1 }}
+                                </label>
+                                <input type="radio" value="{{ block.settings.second_question_tag1 }}" name="question2" class="question-2-inputs">
+                            </div>
+                            <hr class="questions-line">
+                            <div class="wizard-field">
+                                <label class="wizard-label">
+                                    {{ block.settings.second_question_option2 }}
+                                </label>
+                                <input type="radio" value="{{ block.settings.second_question_tag2 }}" name="question2" class="question-2-inputs">
+                            </div>
+                            <hr class="questions-line">
+                            {% if block.settings.second_question_option3 != empty %}
+                                <div class="wizard-field">
+                                    <label class="wizard-label">
+                                        {{ block.settings.second_question_option3 }}
+                                    </label>
+                                    <input type="radio" value="{{ block.settings.second_question_tag3 }}" name="question2" class="question-2-inputs">
+                                </div>
+                              	<hr class="questions-line">
+                            {% endif %}
+                            {% if block.settings.second_question_option4 != empty %}
+                                <div class="wizard-field">
+                                    <label class="wizard-label">
+                                        {{ block.settings.second_question_option4 }}
+                                    </label>
+                                    <input type="radio" value="{{ block.settings.second_question_tag4 }}" name="question2" class="question-2-inputs">
+                                </div>
+                              	<hr class="questions-line">
+                            {% endif %}
+                            </div>
+                            <div>
+                                <div class="wizard-field btns">
+                                    <button class="prev-1 prev">Previous</button>
+                                    <button class="next-1 next" disabled=true>Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% when 'third_question' %}
+                        <div class="wizard-page" {{ block.shopify_attributes }}>
+                            <div>
+                            <div class="wizard-title">
+                                {{ block.settings.third_question_q }}
+                            </div>
+                            <div class="wizard-field">
+                                <label class="wizard-label">
+                                    {{ block.settings.third_question_option1 }}
+                                </label>
+                                <input type="radio" value="{{ block.settings.third_question_tag1 }}" name="question3" class="question-3-inputs">
+                            </div>
+                            <hr class="questions-line">
+                            <div class="wizard-field">
+                                <label class="wizard-label">
+                                    {{ block.settings.third_question_option2 }}
+                                </label>
+                                <input type="radio" value="{{ block.settings.third_question_tag2 }}" name="question3" class="question-3-inputs">
+                            </div>
+                            <hr class="questions-line">
+                            {% if block.settings.third_question_option3 != empty %}
+                                <div class="wizard-field">
+                                    <label class="wizard-label">
+                                        {{ block.settings.third_question_option3 }}
+                                    </label>
+                                    <input type="radio" value="{{ block.settings.third_question_tag3 }}" name="question3" class="question-3-inputs">
+                                </div>
+                              	<hr class="questions-line">
+                            {% endif %}
+                            {% if block.settings.third_question_option4 != empty %}
+                                <div class="wizard-field">
+                                    <label class="wizard-label">
+                                        {{ block.settings.third_question_option4 }}
+                                    </label>
+                                    <input type="radio" value="{{ block.settings.third_question_tag4 }}" name="question3" class="question-3-inputs">
+                                </div>
+                              	<hr class="questions-line">
+                            {% endif %}
+                            </div>
+                            <div>
+                                <div class="wizard-field btns">
+                                    <button class="prev-2 prev">Previous</button>
+                                    <button class="next-2 next" disabled=true>Next</button>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    {% when 'final_question' %}
+                        <div class="wizard-page" {{ block.shopify_attributes }}>
+                            <div>
+                                <div id="wizard-recommendation">
+                                  <div class="wizard-slider">
+                                      <div class="wizard-slides" id="wizard-slides-id">
+                                      </div>
+                                  </div>
+								</div>
+
+                            </div>
+                            <div>
+                                <div class="wizard-field btns">
+                                  <button type="button" class="wizard-end-button prev" id="wizard-checkout-button">Checkout</button>
+                                  <button type="button" class="wizard-end-button next" id="wizard-recommendation-page-button">Alternatives you may like</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endcase %}
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{{ 'pop-up.js' | asset_url }}"></script>
+{{ "https://code.jquery.com/jquery-3.6.0.min.js" | script_tag }}
+<script>
+  let discountCode = '{{section.settings.discount_code}}'
+</script>
+
+{% schema %}
+    {
+    "name": "3 Question Pop Up",
+    "blocks": [
+      {
+      "type": "first_question",
+      "name": "First Question",
+	  "limit": 1,
+      "settings": [
+          {
+          "type": "text",
+          "id": "first_question_q",
+          "default": "First Question",
+          "label": "Question 1"
+          },
+          {
+          "type": "text",
+          "id": "first_question_option1",
+          "default": "First Question - Answer 1",
+          "label": "Option 1"
+          },
+          {
+          "type": "text",
+          "id": "first_question_tag1",
+          "default": "Enter associated tag here",
+          "label": "Option 1 - Associated Tag"
+          },
+          {
+          "type": "text",
+          "id": "first_question_option2",
+          "default": "First Question - Answer 2",
+          "label": "Option 2"
+          },
+          {
+          "type": "text",
+          "id": "first_question_tag2",
+          "default": "Enter associated tag here",
+          "label": "Option 2 - Associated Tag"
+          },
+          {
+          "type": "text",
+          "id": "first_question_option3",
+		  "default": "First Question - Answer 3",
+          "label": "Option 3"
+          },
+          {
+          "type": "text",
+          "id": "first_question_tag3",
+          "label": "Option 3 - Associated Tag"
+          },
+          {
+          "type": "text",
+          "id": "first_question_option4",
+          "label": "Option 4"
+          },
+          {
+          "type": "text",
+          "id": "first_question_tag4",
+          "label": "Option 4 - Associated Tag"
+          }
+      	]
+      },
+      {
+      "type": "second_question",
+      "name": "Second Question",
+	  "limit": 1,
+      "settings": [
+          {
+          "type": "text",
+          "id": "second_question_q",
+          "default": "Second Question",
+          "label": "Second Question"
+          },
+          {
+          "type": "text",
+          "id": "second_question_option1",
+          "default": "Second Question - Answer 1",
+          "label": "Option 1"
+          },
+          {
+          "type": "text",
+          "id": "second_question_tag1",
+          "default": "Enter associated tag here",
+          "label": "Option 1 - Associated Tag"
+          },
+        {
+        "type": "text",
+        "id": "second_question_option2",
+        "default": "Second Question - Answer 2",
+        "label": "Option 2"
+        },
+        {
+        "type": "text",
+        "id": "second_question_tag2",
+        "default": "Enter associated tag here",
+        "label": "Option 2 - Associated Tag"
+        },
+        {
+        "type": "text",
+        "id": "second_question_option3",
+        "label": "Option 3"
+        },
+        {
+        "type": "text",
+        "id": "second_question_tag3",
+        "default": "Enter associated tag here",
+        "label": "Option 3 - Associated Tag"
+        },
+        {
+        "type": "text",
+        "id": "second_question_option4",
+        "label": "Option 4"
+        },
+        {
+        "type": "text",
+        "id": "second_question_tag4",
+        "label": "Option 4 - Associated Tag"
+        }
+      	]
+        },
+        {
+        "type": "third_question",
+        "name": "Third Question",
+        "limit": 1,
+        "settings": [
+        {
+        "type": "text",
+        "id": "third_question_q",
+        "default": "Third Question",
+        "label": "Third Question"
+        },
+        {
+        "type": "text",
+        "id": "third_question_option1",
+        "default": "Third Question - Answer 1",
+        "label": "Option 1"
+        },
+        {
+        "type": "text",
+        "id": "third_question_tag1",
+        "default": "Enter associated tag here",
+        "label": "Option 1 - Associated Tag"
+        },
+        {
+        "type": "text",
+        "id": "third_question_option2",
+        "default": "Third Question - Answer 2",
+        "label": "Option 2"
+        },
+        {
+        "type": "text",
+        "id": "third_question_tag2",
+        "default": "Enter associated tag here",
+        "label": "Option 2 - Associated Tag"
+        },
+        {
+        "type": "text",
+        "id": "third_question_option3",
+        "label": "Option 3"
+        },
+        {
+        "type": "text",
+        "id": "third_question_tag3",
+        "default": "Enter associated tag here",
+        "label": "Option 3 - Associated Tag"
+        },
+        {
+        "type": "text",
+        "id": "third_question_option4",
+        "label": "Option 4"
+        },
+        {
+        "type": "text",
+        "id": "third_question_tag4",
+        "label": "Option 4 - Associated Tag"
+        }
+        ]
+        },
+        {
+        "type": "final_question",
+        "name": "Recommendations",
+        "limit": 1,
+        "settings": []
+        }
+    ],
+    "settings": [
+      {
+      "type": "select",
+      "id": "pop_up_width",
+      "options":[
+          {
+          "value": "large",
+          "label": "Large"
+          },
+          {
+          "value":"medium",
+          "label": "Medium"
+          },
+          {
+          "value":"small",
+          "label": "Small"
+          }
+        ],
+        "default": "medium",
+        "label": "Pop Up Width"
+      },
+	{
+      "type": "select",
+      "id": "button_location",
+      "options":[
+          {
+          "value": "just-left",
+          "label": "Left"
+          },
+          {
+          "value":"just-center",
+          "label": "Center"
+          },
+          {
+          "value":"just-right",
+          "label": "Right"
+          }
+        ],
+        "default": "just-center",
+        "label": "Button Location"
+      },
+      {
+      "type": "text",
+      "id": "first_question_label",
+      "default": "Q1",
+      "label": "First Label"
+      },
+      {
+      "type": "text",
+      "id": "second_question_label",
+      "default": "Q2",
+      "label": "Second Label"
+      },
+      {
+      "type": "text",
+      "id": "third_question_label",
+      "default": "Q3",
+      "label": "Third Label"
+      },
+      {
+      "type": "text",
+      "id": "fourth_question_label",
+      "default": "Q4",
+      "label": "Fourth Label"
+      },
+      {
+      "type": "text",
+      "id": "discount_code",
+      "label": "Custom Discount Code"
+      }
+    ],
+    "presets": [
+      {
+      "category": "Custom Content",
+      "name": "Pop Up - final testing"
+      }
+    ]
+    }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,312 @@
+{
+  "sections": {
+    "1641335419e5950d80": {
+      "type": "video-banner",
+      "blocks": {
+        "49d1bfcd-6374-4a15-880c-1eac20b37ce5": {
+          "type": "text_overlay",
+          "settings": {
+            "text_overlay_input": "Royal Swan Watches",
+            "text_overlay_under_input": "THE COLLECTION",
+            "text_color": "text-black",
+            "background_color": "background-white",
+            "x-axis": "x-right",
+            "y-axis": "y-middle"
+          }
+        }
+      },
+      "block_order": [
+        "49d1bfcd-6374-4a15-880c-1eac20b37ce5"
+      ],
+      "settings": {
+      }
+    },
+    "1641351671fda457a3": {
+      "type": "feature-bar",
+      "settings": {
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Explore the Royal Swan collection of prestigious, high-precision timepieces.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Royal Swan offers a wide assortment of Mechanical,  Automatic and Quartz watches to suit any wrist. Discover the broad selection of watches to find a perfect combination of style and functionality.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "16411774499e767dd6": {
+      "type": "pop-up3",
+      "blocks": {
+        "b78f34df-fa99-4e3d-9493-cc6750b30541": {
+          "type": "first_question",
+          "settings": {
+            "first_question_q": "Do you have a preference in watch movement?",
+            "first_question_option1": "Automatic",
+            "first_question_tag1": "Automatic",
+            "first_question_option2": "Mechanical",
+            "first_question_tag2": "Mechanical",
+            "first_question_option3": "Quartz",
+            "first_question_tag3": "Quartz",
+            "first_question_option4": "No Preference",
+            "first_question_tag4": "No Preference"
+          }
+        },
+        "04773ff8-108b-4817-86b7-d85fe694239a": {
+          "type": "second_question",
+          "settings": {
+            "second_question_q": "Brand",
+            "second_question_option1": "Earnshaw",
+            "second_question_tag1": "Earnshaw",
+            "second_question_option2": "Tag Heuer",
+            "second_question_tag2": "Tag Heuer",
+            "second_question_option3": "Hublot",
+            "second_question_tag3": "Hublot",
+            "second_question_option4": "No Preference",
+            "second_question_tag4": "No Preference"
+          }
+        },
+        "54669785-ea6f-4b04-94cf-ce13c568cf22": {
+          "type": "third_question",
+          "settings": {
+            "third_question_q": "Band Style",
+            "third_question_option1": "Gold Stainless Steel",
+            "third_question_tag1": "Gold Stainless Steel",
+            "third_question_option2": "Silver Stainless Steel",
+            "third_question_tag2": "Silver Stainless Steel",
+            "third_question_option3": "Brown Leather",
+            "third_question_tag3": "Brown Leather",
+            "third_question_option4": "Black Leather",
+            "third_question_tag4": "Black Leather"
+          }
+        },
+        "c2f32812-4cd2-4635-b1b7-55dbb4af5698": {
+          "type": "final_question",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "b78f34df-fa99-4e3d-9493-cc6750b30541",
+        "04773ff8-108b-4817-86b7-d85fe694239a",
+        "54669785-ea6f-4b04-94cf-ce13c568cf22",
+        "c2f32812-4cd2-4635-b1b7-55dbb4af5698"
+      ],
+      "settings": {
+        "pop_up_width": "medium",
+        "button_location": "just-center",
+        "first_question_label": "Movement",
+        "second_question_label": "Brand",
+        "third_question_label": "Band",
+        "fourth_question_label": "Recommendation",
+        "discount_code": "Recommendation Discount"
+      }
+    },
+    "featured_products": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Classic Watches",
+        "collection": "brown-leather",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "square",
+        "show_secondary_image": false,
+        "add_image_padding": true,
+        "show_image_outline": true,
+        "show_vendor": true,
+        "show_rating": false
+      }
+    },
+    "1640744130643ca1c5": {
+      "type": "rich-text",
+      "blocks": {
+        "16407441301705de98-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Royal Swan offers a wide range of models ranging from professional to classic watches to suit any wrist.",
+            "heading_size": "h1"
+          }
+        },
+        "16407441301705de98-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore our collections by selecting your favourite models, materials, brands and movements to find the watch that was made for you.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16407441301705de98-0",
+        "16407441301705de98-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
+    "multi_column": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2.2_47457042-3be1-4427-9f31-93cac477a818.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Gold Watches",
+            "link": "shopify:\/\/collections\/gold-stainless-steel"
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/custom_resized_068ef468-024c-4969-a656-d744321bcaa2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Black Leather Watches",
+            "link": "shopify:\/\/collections\/black-leather"
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4.3.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Silver Watches",
+            "link": "shopify:\/\/collections\/silver-stainless-steel"
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column3",
+        "column2"
+      ],
+      "settings": {
+        "title": "Watch Finder",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false
+      }
+    },
+    "1640744806cd60d99c": {
+      "type": "multicolumn",
+      "blocks": {
+        "16407448061308cae0-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Automatic",
+            "link": "shopify:\/\/collections\/automatic"
+          }
+        },
+        "16407448061308cae0-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/mechanical-watch.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Mechanical",
+            "link": "shopify:\/\/collections\/manual"
+          }
+        },
+        "16407448061308cae0-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screenshot_4.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Quartz",
+            "link": "shopify:\/\/collections\/quartz"
+          }
+        }
+      },
+      "block_order": [
+        "16407448061308cae0-0",
+        "16407448061308cae0-1",
+        "16407448061308cae0-2"
+      ],
+      "settings": {
+        "title": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "View All",
+        "button_link": "shopify:\/\/collections\/all",
+        "swipe_on_mobile": false
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Royal Swan Watches",
+            "heading_size": "medium"
+          }
+        },
+        "e578af9d-afde-4528-9571-27dc1183bb91": {
+          "type": "text",
+          "settings": {
+            "text": "LUXURY REDEFINED",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "e578af9d-afde-4528-9571-27dc1183bb91"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/joshua-reddekopp-cNe8GsQR-OQ-unsplash.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "medium",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-right",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-2",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "1641335419e5950d80",
+    "1641351671fda457a3",
+    "rich_text",
+    "16411774499e767dd6",
+    "featured_products",
+    "1640744130643ca1c5",
+    "multi_column",
+    "1640744806cd60d99c",
+    "image_banner"
+  ]
+}

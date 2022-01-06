@@ -1,0 +1,103 @@
+<div class="feature-bar-container">
+  <section id="feature-bar">
+    <div class="page-width">
+        <div class="feature">
+          <img src="//cdn.shopify.com/s/files/1/1716/6281/files/3_c897aaa7-e276-4214-b115-7b045a52eb93_120x.png?v=1600904722" alt="Free Shipping Worldwide">
+          <p>Free Shipping Worldwide</p>
+        </div>
+
+        <div class="feature">
+          <img src="//cdn.shopify.com/s/files/1/1716/6281/files/2_120x.png?v=1600904722" alt="30-Day Risk-Free Returns Worldwide">
+          <p>30-Day Risk-Free Returns Worldwide</p>
+        </div>
+
+        <div class="feature">
+          <img src="//cdn.shopify.com/s/files/1/1716/6281/files/ceb62e6796faba6dfcfe6e1e7065fb44_120x.png?v=1600904722" alt="2-Year International Premium Warranty">
+          <p>2-Year International Premium Warranty</p>
+        </div>
+
+        <div class="feature">
+          <img src="//cdn.shopify.com/s/files/1/1716/6281/files/4_120x.png?v=1600904722" alt="Secure SSL 256-bit Encrypted payments">
+          <p>Secure SSL 256-bit Encrypted payments</p>
+        </div>
+    </div>
+  </section>
+</div>
+
+
+
+<style>
+
+</style>
+
+{% schema %}
+  {
+    "name": "Feature Bar",
+    "settings": [],
+	"presets": [
+      {
+      "category": "Custom Content",
+      "name": "Feature Bar"
+      }
+    ]
+
+  }
+{% endschema %}
+
+{% stylesheet %}
+.feature-bar-container{
+  	margin: 0;
+  	padding: 0;
+}
+#feature-bar{
+    background: #e5e5e5;
+  }
+  
+#feature-bar .page-width{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    flex-wrap: wrap;
+    max-width: 1200px;
+  }
+  
+#feature-bar .feature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    flex-basis: 25%;
+    padding: 28px 8px;
+  }
+  
+#feature-bar img{
+    width: 41px;
+    margin: 0 15px;
+  }
+  
+#feature-bar p{
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6em;
+    letter-spacing: 0;
+    padding: 0 15px;
+    color: #3d4246;
+    max-width: 190px;
+  }
+  
+@media (max-width: 867px) and (min-width: 768px){
+    #feature-bar .feature{
+      display: block;
+      text-align: center;
+    }
+  }
+  
+@media (max-width: 767px){
+    #feature-bar{
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

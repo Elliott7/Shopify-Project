@@ -1,0 +1,255 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product-test",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "759506ea-85a5-4236-bcde-dd93ec294e4c": {
+          "type": "product_specifications",
+          "settings": {
+            "case_diameter_title": "Case Diameter",
+            "case_diameter": true,
+            "case_thickness_title": "Case Thickness",
+            "case_thickness": true,
+            "watch_weight_title": "Watch Weight",
+            "watch_weight": true,
+            "water_resistance_title": "Water Resistance",
+            "water_resistance": true,
+            "band_title": "Band",
+            "band": true,
+            "case_colour_title": "Case Colour",
+            "case_colour": true,
+            "case_material_title": "Case Material",
+            "case_material": true,
+            "movement_title": "Movement",
+            "movement": true
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share",
+        "759506ea-85a5-4236-bcde-dd93ec294e4c"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "media_size": "small",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "164136361271051574": {
+      "type": "my-collapsible-bar",
+      "blocks": {
+        "7ed7f0f9-74eb-47a6-a475-843147a3aa71": {
+          "type": "movement",
+          "settings": {
+            "movement_title": "Movement",
+            "text_style": "uppercase"
+          }
+        },
+        "5496d5c2-e97c-4c1d-a73b-cf7cc820e97b": {
+          "type": "case_material",
+          "settings": {
+            "case_material_title": "Case Material",
+            "text_style": "uppercase"
+          }
+        },
+        "e3398246-af24-4f1b-8e96-eab49673f000": {
+          "type": "case_diameter",
+          "settings": {
+            "case_diameter_title": "Case Diameter",
+            "text_style": "uppercase"
+          }
+        },
+        "b8d4194d-2fbe-4715-9de9-b0471850128a": {
+          "type": "case_thickness",
+          "settings": {
+            "case_thickness_title": "Case Thickness",
+            "text_style": "uppercase"
+          }
+        },
+        "84906523-3298-4dd2-a0c8-7ece4f3fb4c7": {
+          "type": "case_colour",
+          "settings": {
+            "case_colour_title": "Case Colour",
+            "text_style": "uppercase"
+          }
+        },
+        "76d9c5ef-131e-413a-b805-b2b2bfb7758b": {
+          "type": "band",
+          "settings": {
+            "band_title": "Band",
+            "text_style": "uppercase"
+          }
+        },
+        "0fc8f05b-5f21-48d7-8da0-ac9b3de68725": {
+          "type": "water_resistance",
+          "settings": {
+            "water_resistance_title": "Water Resistance",
+            "text_style": "uppercase"
+          }
+        },
+        "7471e117-cb7e-48e9-bd3b-1e5e98fa5e96": {
+          "type": "watch_weight",
+          "settings": {
+            "watch_weight_title": "Watch Weight",
+            "text_style": "uppercase"
+          }
+        }
+      },
+      "block_order": [
+        "7ed7f0f9-74eb-47a6-a475-843147a3aa71",
+        "5496d5c2-e97c-4c1d-a73b-cf7cc820e97b",
+        "e3398246-af24-4f1b-8e96-eab49673f000",
+        "b8d4194d-2fbe-4715-9de9-b0471850128a",
+        "84906523-3298-4dd2-a0c8-7ece4f3fb4c7",
+        "76d9c5ef-131e-413a-b805-b2b2bfb7758b",
+        "0fc8f05b-5f21-48d7-8da0-ac9b3de68725",
+        "7471e117-cb7e-48e9-bd3b-1e5e98fa5e96"
+      ],
+      "settings": {
+        "heading": "SPECIFICATIONS",
+        "content": "",
+        "icon": "check_mark"
+      }
+    },
+    "1641364016ad387849": {
+      "type": "pop-up3",
+      "blocks": {
+        "0803806c-d504-4a87-81c9-f1aaee0f81a0": {
+          "type": "first_question",
+          "settings": {
+            "first_question_q": "First Question",
+            "first_question_option1": "First Question - Answer 1",
+            "first_question_tag1": "Enter associated tag here",
+            "first_question_option2": "First Question - Answer 2",
+            "first_question_tag2": "Enter associated tag here",
+            "first_question_option3": "First Question - Answer 3",
+            "first_question_tag3": "",
+            "first_question_option4": "",
+            "first_question_tag4": ""
+          }
+        },
+        "7a698366-4c71-4332-912d-1a6da6953b2b": {
+          "type": "second_question",
+          "settings": {
+            "second_question_q": "Second Question",
+            "second_question_option1": "Second Question - Answer 1",
+            "second_question_tag1": "Enter associated tag here",
+            "second_question_option2": "Second Question - Answer 2",
+            "second_question_tag2": "Enter associated tag here",
+            "second_question_option3": "",
+            "second_question_tag3": "Enter associated tag here",
+            "second_question_option4": "",
+            "second_question_tag4": ""
+          }
+        },
+        "9d14c892-f2e6-4bb9-84f1-1169350d4d57": {
+          "type": "third_question",
+          "settings": {
+            "third_question_q": "Third Question",
+            "third_question_option1": "Third Question - Answer 1",
+            "third_question_tag1": "Enter associated tag here",
+            "third_question_option2": "Third Question - Answer 2",
+            "third_question_tag2": "Enter associated tag here",
+            "third_question_option3": "",
+            "third_question_tag3": "Enter associated tag here",
+            "third_question_option4": "",
+            "third_question_tag4": ""
+          }
+        },
+        "258e06a7-e505-4786-a540-901da2b71800": {
+          "type": "final_question",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "0803806c-d504-4a87-81c9-f1aaee0f81a0",
+        "7a698366-4c71-4332-912d-1a6da6953b2b",
+        "9d14c892-f2e6-4bb9-84f1-1169350d4d57",
+        "258e06a7-e505-4786-a540-901da2b71800"
+      ],
+      "settings": {
+        "pop_up_width": "medium",
+        "button_location": "just-center",
+        "first_question_label": "Q1",
+        "second_question_label": "Q2",
+        "third_question_label": "Q3",
+        "fourth_question_label": "Q4",
+        "discount_code": ""
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Top picks for you",
+        "image_ratio": "square",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "164136361271051574",
+    "1641364016ad387849",
+    "product-recommendations"
+  ]
+}

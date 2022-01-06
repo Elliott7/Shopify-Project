@@ -1,0 +1,233 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "media_size": "small",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false
+      }
+    },
+    "164135754763f0feff": {
+      "type": "my-collapsible-bar",
+      "blocks": {
+        "b97bfd39-2daf-482c-8fed-51bba4c3eaee": {
+          "type": "movement",
+          "settings": {
+            "movement_title": "Movement",
+            "text_style": "uppercase"
+          }
+        },
+        "bbca4260-ca36-496d-803c-01ee41a2b04d": {
+          "type": "case_material",
+          "settings": {
+            "case_material_title": "Case Material",
+            "text_style": "uppercase"
+          }
+        },
+        "00d33e64-30cc-452d-a03a-de2595a78c23": {
+          "type": "case_diameter",
+          "settings": {
+            "case_diameter_title": "Case Diameter",
+            "text_style": "uppercase"
+          }
+        },
+        "bae02cd6-8ff3-4bb3-8daf-881423873020": {
+          "type": "case_thickness",
+          "settings": {
+            "case_thickness_title": "Case Thickness",
+            "text_style": "uppercase"
+          }
+        },
+        "2d670755-0a12-460e-a95b-0797af9206d8": {
+          "type": "case_colour",
+          "settings": {
+            "case_colour_title": "Case Colour",
+            "text_style": "uppercase"
+          }
+        },
+        "2b9b1911-cae3-44b5-82eb-6a979e5dc247": {
+          "type": "band",
+          "settings": {
+            "band_title": "Band",
+            "text_style": "uppercase"
+          }
+        },
+        "3a2c8977-eb6e-481a-b157-85a5aa247f85": {
+          "type": "water_resistance",
+          "settings": {
+            "water_resistance_title": "Water Resistance",
+            "text_style": "uppercase"
+          }
+        },
+        "095af4c1-b8a7-4af1-b0ef-9d1fb45991e3": {
+          "type": "watch_weight",
+          "settings": {
+            "watch_weight_title": "Watch Weight",
+            "text_style": "uppercase"
+          }
+        }
+      },
+      "block_order": [
+        "b97bfd39-2daf-482c-8fed-51bba4c3eaee",
+        "bbca4260-ca36-496d-803c-01ee41a2b04d",
+        "00d33e64-30cc-452d-a03a-de2595a78c23",
+        "bae02cd6-8ff3-4bb3-8daf-881423873020",
+        "2d670755-0a12-460e-a95b-0797af9206d8",
+        "2b9b1911-cae3-44b5-82eb-6a979e5dc247",
+        "3a2c8977-eb6e-481a-b157-85a5aa247f85",
+        "095af4c1-b8a7-4af1-b0ef-9d1fb45991e3"
+      ],
+      "settings": {
+        "heading": "SPECIFICATIONS",
+        "content": "",
+        "icon": "check_mark"
+      }
+    },
+    "1641363782e34a54e6": {
+      "type": "pop-up3",
+      "blocks": {
+        "b5e7309d-01b4-4e30-8952-8b365b865fa9": {
+          "type": "first_question",
+          "settings": {
+            "first_question_q": "Movement Preference",
+            "first_question_option1": "Automatic",
+            "first_question_tag1": "Automatic",
+            "first_question_option2": "Mechanical",
+            "first_question_tag2": "Mechanical",
+            "first_question_option3": "Quartz",
+            "first_question_tag3": "Quartz",
+            "first_question_option4": "No Preference",
+            "first_question_tag4": "No Preference"
+          }
+        },
+        "66112afe-7bdb-455e-9da1-f223f5fb876b": {
+          "type": "second_question",
+          "settings": {
+            "second_question_q": "Brand",
+            "second_question_option1": "Earnshaw",
+            "second_question_tag1": "Earnshaw",
+            "second_question_option2": "Tag Heuer",
+            "second_question_tag2": "Tag Heuer",
+            "second_question_option3": "Hublot",
+            "second_question_tag3": "Hublot",
+            "second_question_option4": "No Preference",
+            "second_question_tag4": "No Preference"
+          }
+        },
+        "b0393302-7c5f-48b7-afdc-3914f4a0718a": {
+          "type": "third_question",
+          "settings": {
+            "third_question_q": "Band Style",
+            "third_question_option1": "Gold Stainless Steel",
+            "third_question_tag1": "Gold Stainless Steel",
+            "third_question_option2": "Silver Stainless Steel",
+            "third_question_tag2": "Silver Stainless Steel",
+            "third_question_option3": "Brown Leather",
+            "third_question_tag3": "Brown Leather",
+            "third_question_option4": "Black Leather",
+            "third_question_tag4": "Black Leather"
+          }
+        },
+        "092e394b-3d00-49d2-8144-1cd3011b518b": {
+          "type": "final_question",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "b5e7309d-01b4-4e30-8952-8b365b865fa9",
+        "66112afe-7bdb-455e-9da1-f223f5fb876b",
+        "b0393302-7c5f-48b7-afdc-3914f4a0718a",
+        "092e394b-3d00-49d2-8144-1cd3011b518b"
+      ],
+      "settings": {
+        "pop_up_width": "medium",
+        "button_location": "just-right",
+        "first_question_label": "Movement",
+        "second_question_label": "Brand",
+        "third_question_label": "Band",
+        "fourth_question_label": "Recommendation",
+        "discount_code": "Recommendation Discount"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Top picks for you",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "add_image_padding": true,
+        "show_image_outline": true,
+        "show_vendor": true,
+        "show_rating": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "164135754763f0feff",
+    "1641363782e34a54e6",
+    "product-recommendations"
+  ]
+}
