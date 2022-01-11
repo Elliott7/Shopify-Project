@@ -15,10 +15,11 @@
         <span id="wizard-close-button"></span>
         <header>Find Your Perfect Watch</header>
         <div class="wizard-progress-bar">
-            {% render "quiz-title-bar", label: section.settings.first_question_label, width: section.settings.pop_up_width, number: 1 %}
-            {% render "quiz-title-bar", label: section.settings.second_question_label, width: section.settings.pop_up_width, number: 2 %}
-            {% render "quiz-title-bar", label: section.settings.third_question_label, width: section.settings.pop_up_width, number: 3 %}
-            {% render "quiz-title-bar", label: section.settings.fourth_question_label, width: section.settings.pop_up_width, number: 4 %}
+            {% assign counter = 0%}
+            {% for block in section.blocks %}
+                {% assign counter = counter | plus: 1%}
+                {% render "quiz-title-bar", label: block.settings.question_label, width: section.settings.pop_up_width, number: counter%}
+            {% endfor %}
         </div>
         <div class="wizard-form-outer">
             <form action="#">
@@ -450,6 +451,12 @@
     "settings": [
     {
     "type": "text",
+    "id": "question_label",
+    "default": "Q1",
+    "label": "First Label"
+    },
+    {
+    "type": "text",
     "id": "first_question_q",
     "default": "First Question",
     "label": "Question 1"
@@ -506,6 +513,12 @@
     "name": "Second Question",
     "limit": 1,
     "settings": [
+    {
+    "type": "text",
+    "id": "question_label",
+    "default": "Q2",
+    "label": "Second Label"
+    },
     {
     "type": "text",
     "id": "second_question_q",
@@ -566,6 +579,12 @@
     "settings": [
     {
     "type": "text",
+    "id": "question_label",
+    "default": "Q3",
+    "label": "Third Label"
+    },
+    {
+    "type": "text",
     "id": "third_question_q",
     "default": "Third Question",
     "label": "Third Question"
@@ -621,7 +640,13 @@
     "type": "final_question",
     "name": "Recommendations",
     "limit": 1,
-    "settings": []
+    "settings": [
+    {
+    "type": "text",
+    "id": "question_label",
+    "default": "Q4",
+    "label": "Final Label"
+    }]
     }
     ],
     "settings": [
@@ -664,30 +689,6 @@
     ],
     "default": "just-center",
     "label": "Button Location"
-    },
-    {
-    "type": "text",
-    "id": "first_question_label",
-    "default": "Q1",
-    "label": "First Label"
-    },
-    {
-    "type": "text",
-    "id": "second_question_label",
-    "default": "Q2",
-    "label": "Second Label"
-    },
-    {
-    "type": "text",
-    "id": "third_question_label",
-    "default": "Q3",
-    "label": "Third Label"
-    },
-    {
-    "type": "text",
-    "id": "fourth_question_label",
-    "default": "Q4",
-    "label": "Fourth Label"
     },
     {
     "type": "text",
