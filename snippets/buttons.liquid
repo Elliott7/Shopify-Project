@@ -1,0 +1,17 @@
+{% comment %}
+    Accepts:
+    - class1: The class for the first button
+    - buttonText1: Text for first button
+    - class2: The class for the second button
+    - buttonText2: Text for second button
+    - isDisabled: ture or false for whether the button should start disabled
+    - Id1: Text for the ID of button1
+    - Id2: Text for the ID of button2
+    Usage:
+{% render 'buttons', class1: "", buttonText1: , class2: "", buttonText2: , isDisabled: true, id1: "text", id2: "text" %}
+{% endcomment %}
+<div class="wizard-field btns">
+    <button type="button" class="{{ class1 }} prev" {% if id1 %} id={{id1}} {% endif %}>{{ buttonText1 }}</button>
+    <button type="button" class="{{ class2 }} next" {% if id2 %} id={{id2}} {% endif %} {% if isDisabled == true %}disabled=true {% endif %}> {{ buttonText2}}</button>
+</div>
+

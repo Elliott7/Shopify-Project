@@ -1,0 +1,711 @@
+{{ 'pop-up2.css' | asset_url | stylesheet_tag }}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<section class="page-width">
+    <div class="wizard-button-cont {{section.settings.button_location}}">
+        <button id="my-wizard-button">Find Your Perfect Watch</button>
+    </div>
+</section>
+
+
+<div class="hide" id="my-wizard-container-container">
+    <div class="modal-backdrop hide" id="modal-backdrop"> </div>
+    <div class="my-wizard-container {{ section.settings.pop_up_width }}">
+        <span id="wizard-close-button"></span>
+        <header>Find Your Perfect Watch</header>
+        <div class="wizard-progress-bar">
+            {% render "quiz-title-bar", label: section.settings.first_question_label, width: section.settings.pop_up_width, number: 1 %}
+            {% render "quiz-title-bar", label: section.settings.second_question_label, width: section.settings.pop_up_width, number: 2 %}
+            {% render "quiz-title-bar", label: section.settings.third_question_label, width: section.settings.pop_up_width, number: 3 %}
+            {% render "quiz-title-bar", label: section.settings.fourth_question_label, width: section.settings.pop_up_width, number: 4 %}
+        </div>
+        <div class="wizard-form-outer">
+            <form action="#">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                    {% when 'first_question' %}
+                        <div class="wizard-page slide-page" {{ block.shopify_attributes }}>
+                            <div>
+                                <div class="wizard-title">
+                                    {{ block.settings.first_question_q }}
+                                </div>
+
+                                {% render 'quiz-question', question: block.settings.first_question_option1, tag: block.settings.first_question_tag1, name: "question1", class: "question-1-inputs" %}
+                                {% render 'quiz-question', question: block.settings.first_question_option2, tag: block.settings.first_question_tag2, name: "question1", class: "question-1-inputs" %}
+
+                                {% if block.settings.first_question_option3 != empty %}
+                                    {% render 'quiz-question', question: block.settings.first_question_option3, tag: block.settings.first_question_tag3, name: "question1", class: "question-1-inputs" %}
+                                {% endif %}
+
+                                {% if block.settings.first_question_option4 != empty %}
+                                    {% render 'quiz-question', question: block.settings.first_question_option4, tag: block.settings.first_question_tag4, name: "question1", class: "question-1-inputs" %}
+                                {% endif %}
+
+                            </div>
+                            <div>
+                                <div class="wizard-field">
+                                    <button class="firstNext next" disabled=true>Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% when 'second_question' %}
+                        <div class="wizard-page" {{ block.shopify_attributes }}>
+                            <div>
+                                <div class="wizard-title">
+                                    {{ block.settings.second_question_q }}
+                                </div>
+                                {% render 'quiz-question', question: block.settings.second_question_option1, tag: block.settings.second_question_tag1, name: "question2", class: "question-2-inputs" %}
+                                {% render 'quiz-question', question: block.settings.second_question_option2, tag: block.settings.second_question_tag2, name: "question2", class: "question-2-inputs" %}
+
+                                {% if block.settings.second_question_option3 != empty %}
+                                    {% render 'quiz-question', question: block.settings.second_question_option3, tag: block.settings.second_question_tag3, name: "question2", class: "question-2-inputs" %}
+                                {% endif %}
+
+                                {% if block.settings.second_question_option4 != empty %}
+                                    {% render 'quiz-question', question: block.settings.second_question_option4, tag: block.settings.second_question_tag4, name: "question2", class: "question-2-inputs" %}
+                                {% endif %}
+                            </div>
+                            {% render 'buttons', class1: "prev-1", buttonText1: "Previous", class2: "next-1", buttonText2: "Next", isDisabled: true %}
+                        </div>
+
+                    {% when 'third_question' %}
+                        <div class="wizard-page" {{ block.shopify_attributes }}>
+                            <div>
+                                <div class="wizard-title">
+                                    {{ block.settings.third_question_q }}
+                                </div>
+
+                                {% render 'quiz-question', question: block.settings.third_question_option1, tag: block.settings.third_question_tag1, name: "question3", class: "question-3-inputs" %}
+                                {% render 'quiz-question', question: block.settings.third_question_option2, tag: block.settings.third_question_tag2, name: "question3", class: "question-3-inputs" %}
+
+                                {% if block.settings.third_question_option3 != empty %}
+                                    {% render 'quiz-question', question: block.settings.third_question_option3, tag: block.settings.third_question_tag3, name: "question3", class: "question-3-inputs" %}
+                                {% endif %}
+
+                                {% if block.settings.third_question_option4 != empty %}
+                                    {% render 'quiz-question', question: block.settings.third_question_option4, tag: block.settings.third_question_tag4, name: "question3", class: "question-3-inputs" %}
+                                {% endif %}
+                            </div>
+                            {% render 'buttons', class1: "prev-2", buttonText1: "Previous", class2: "next-2", buttonText2: "Next", isDisabled: true %}
+                        </div>
+
+                    {% when 'final_question' %}
+                        <div class="wizard-page" {{ block.shopify_attributes }}>
+                            <div>
+                                <div id="wizard-recommendation">
+                                    <div class="wizard-slider">
+                                        <div class="wizard-slides" id="wizard-slides-id">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            {% render 'buttons', class1: "wizard-end-button", buttonText1: "Checkout", class2: "wizard-end-button", buttonText2: "Alternatives you may like", isDisabled: false, id1:"wizard-checkout-button" , id2:"wizard-recommendation-page-button" %}
+                        </div>
+                    {% endcase %}
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% assign collection = collections['all']%}
+
+{% capture prod-arr = '' %}
+    {% for product in collection.products %}
+        {{ product | json }},
+    {% endfor %}
+{% endcapture %}
+{% assign product-list = prod-arr | split: ','%}
+
+<script>
+    const myPopUpButton = document.getElementById("my-wizard-button")
+    const myPopUpCont = document.getElementById("my-wizard-container-container")
+    const modalBackdrop = document.getElementById("modal-backdrop")
+    const slidePage = document.querySelector(".slide-page");
+    const nextBtnFirst = document.querySelector(".firstNext");
+    const prevBtnSec = document.querySelector(".prev-1");
+    const nextBtnSec = document.querySelector(".next-1");
+    const prevBtnThird = document.querySelector(".prev-2");
+    const nextBtnThird = document.querySelector(".next-2");
+    const progressText = document.querySelectorAll(".wizard-step p");
+    const progressCheck = document.querySelectorAll(".wizard-step .wizard-check");
+    const bullet = document.querySelectorAll(".wizard-step .wizard-bullet");
+    const wizardSlides = document.getElementById("wizard-slides-id")
+    const questionOneInputs = document.getElementsByClassName("question-1-inputs")
+    const questionTwoInputs = document.getElementsByClassName("question-2-inputs")
+    const questionThreeInputs = document.getElementsByClassName("question-3-inputs")
+    const checkoutButton = document.getElementById("wizard-checkout-button")
+    const recommendationButton = document.getElementById("wizard-recommendation-page-button")
+    const wizardCloseButton = document.getElementById("wizard-close-button")
+    let current = 1;
+    let answer1;
+    let answer2;
+    let answer3;
+    let checkoutLinks = [];
+    let recommendationLink;
+
+    function wizardToggle(){
+        myPopUpCont.classList.toggle('hide')
+        modalBackdrop.classList.toggle('hide')
+    }
+    myPopUpButton.addEventListener("click", () => {
+        wizardToggle()
+        window.scrollTo(0, 0)
+    })
+
+    modalBackdrop.addEventListener("click", () => {
+        wizardToggle()
+    })
+
+    wizardCloseButton.addEventListener("click", () => {
+        wizardToggle()
+    })
+
+
+    function changeStyling(event, margin, decrement, currentChange){
+        event.preventDefault();
+        slidePage.style.marginLeft = margin;
+        bullet[current - decrement].classList.add("active");
+        progressCheck[current - decrement].classList.add("active");
+        progressText[current - decrement].classList.add("active");
+        current += currentChange;
+    }
+
+    function changeStylingRemove(event, margin, decrement, currentChange){
+        event.preventDefault();
+        slidePage.style.marginLeft = margin;
+        bullet[current - decrement].classList.remove("active");
+        progressCheck[current - decrement].classList.remove("active");
+        progressText[current - decrement].classList.remove("active");
+        current -= currentChange;
+    }
+
+    nextBtnFirst.addEventListener("click", function(event){
+        changeStyling(event, "-25%", 1, 1)
+        answer1 = getResult("question1")
+
+    });
+
+    nextBtnSec.addEventListener("click", function(event){
+        changeStyling(event, "-50%", 1, 1)
+        answer2 = getResult("question2")
+    });
+
+    nextBtnThird.addEventListener("click", function(event){
+        changeStyling(event, "-75%", 1, 1)
+        answer3 = getResult("question3")
+        filterResults()
+        updateRecommendationLink([answer1, answer2, answer3]).update()
+
+    });
+
+    prevBtnSec.addEventListener("click", function(event){
+        changeStylingRemove(event, "0%", 2, 1)
+    });
+
+    prevBtnThird.addEventListener("click", function(event){
+        changeStylingRemove(event, "-25%", 2, 1)
+    });
+
+    checkoutButton.addEventListener("click", () => {
+        window.location = checkoutLinks[0]
+    })
+
+    recommendationButton.addEventListener("click", () => {
+        window.location = recommendationLink
+    })
+
+    function checkAnswer(questionInputs, nextButton, answer){
+        for (let i = 0; i < questionInputs.length; i++){
+            questionInputs[i].addEventListener('click',() => {
+                nextButton.disabled = false;
+                answer = questionInputs[i].value})
+        }
+    }
+
+    checkAnswer(questionOneInputs, nextBtnFirst, answer1)
+    checkAnswer(questionTwoInputs, nextBtnSec, answer2)
+    checkAnswer(questionThreeInputs, nextBtnThird, answer3)
+
+
+    function getResult(option) {
+        const elements = document.getElementsByName(option)
+        for (let i = 0; i < elements.length; i++) {
+            if (elements[i].checked) {
+                return elements[i].value
+            }
+        }
+    }
+
+    let discountCode = '{{section.settings.discount_code}}'
+    let productsArr = [{{prod-arr}}]
+    let myObj2 = []
+
+    // Iterates through the array of products and saves the necessary details to an object
+    for (let prod of productsArr){
+        for (let variant of prod.variants){
+            const temp = {
+                handle: prod.handle,
+                imgSrc: (variant.featured_image) ? variant.featured_image.src : prod.featured_image,
+                price: variant.price,
+                title: variant.name,
+                id: variant.id,
+                vendor: prod.vendor,
+                tags: prod.tags,
+                options: variant.options,
+                tagsWithOptions: prod.tags.concat(variant.options)
+            }
+            myObj2.push(temp)
+        }
+    }
+
+    // Takes in the answers and returns an array containing valid tags - it excludes the preference option
+    function removeNoPref(answers){
+        let answersArray = []
+        for (let item of answers){
+            if (item != "No Preference"){
+                answersArray.push(`${item}`)
+            }
+        }
+        return answersArray
+    }
+
+    // Takes in all the answers, removes the no preference options, deteremines a suitable recommendations link and then updates the link
+    function updateRecommendationLink(answersArr){
+        answersArr = removeNoPref(answersArr)
+        function alternativesPage(){
+            let options
+            if (answersArr.length > 1){
+                options = `${answersArr[0]}+${answersArr[1]}`
+            } else{
+                options = `${answersArr[0]}`
+            }
+            return `https://royalswanwatches.myshopify.com/collections/you-may-also-like/${options}`
+        }
+        function update(){
+            recommendationLink = alternativesPage()
+        }
+        return {update}
+    }
+
+    // Used to create the main product template once the results have been filtered
+    function createProductTemplate(product, count){
+        const templateMainCont = document.createElement('div')
+        templateMainCont.className ='wizard-added-slides'
+        templateMainCont.id = `slide-${count}`
+
+        const templateLink = document.createElement('a')
+        templateLink.href = `https://royalswanwatches.myshopify.com/cart/${product.id}:1?checkout&discount=${discountCode}`
+        templateLink.id = `${product.id}`
+        checkoutLinks.push(`https://royalswanwatches.myshopify.com/cart/${product.id}:1?checkout&discount=${discountCode}`)
+
+        const templateInnerCont = document.createElement('div')
+        templateInnerCont.className = 'wizard-product-card'
+
+        const templateImage = document.createElement('img')
+        templateImage.src = `${product.imgSrc}`
+        templateImage.className = 'wizard-added-picture'
+
+        const templateTitle = document.createElement('h5')
+        templateTitle.className = "wizard-added-title"
+        templateTitle.innerText = `${product.title} `
+
+        const templateVendor = document.createElement('span')
+        templateVendor.innerText = `${product.vendor}`
+        templateVendor.className = "wizard-vendor"
+
+        const templateLine = document.createElement('hr')
+        templateLine.className = "wizard-division-line"
+
+        const templatePrice = document.createElement('span')
+        templatePrice.innerText = `$${parseInt(product.price) / 100}`
+        templatePrice.className = "wizard-added-price"
+
+        templateInnerCont.appendChild(templateImage)
+        templateTitle.appendChild(templateVendor)
+        templateInnerCont.appendChild(templateTitle)
+        templateInnerCont.appendChild(templateLine)
+        templateInnerCont.appendChild(templatePrice)
+        templateLink.appendChild(templateInnerCont)
+        templateMainCont.appendChild(templateLink)
+
+        return templateMainCont
+    }
+
+    // Returns an array of all the permutations of an array to a given size
+    function getPermutations(array, size) {
+        function p(t, i) {
+            if (t.length === size) {
+                result.push(t);
+                return;
+            }
+            if (i + 1 > array.length) {
+                return;
+            }
+            p(t.concat(array[i]), i + 1);
+            p(t, i + 1);
+        }
+
+        let result = [];
+        p([], 0);
+        return result;
+    }
+
+    // Runs through all the permutations of tags in order to try and find a backup recommendation that has atleast one option for the user
+    function getBackupfilter(myCleanedAnswers){
+        let newResults
+        if (myCleanedAnswers.length == 3){
+            let choices = getPermutations(myCleanedAnswers, 2)
+            for (let res of choices){
+                const temp = myObj2.filter(product => product.tagsWithOptions.includes(res[0]) && product.tagsWithOptions.includes(res[1]));
+                if (temp.length > 0){
+                    newResults = temp
+                    return newResults
+                }
+            }
+        }
+        if (myCleanedAnswers.length == 2){
+            for (let item of myCleanedAnswers){
+                const temp = myObj2.filter(product => product.tagsWithOptions.includes(item));
+                if (temp.length > 0){
+                    newResults = temp
+                    return newResults
+                }
+            }
+        }
+    }
+
+    //	 Filters through the loaded products, using the users selections to filter down the products into a recommendation.
+    //   The products are wrapped in a link tag that adds the product to cart and takes them directly to checkout
+    function filterResults(){
+        const cleanedAnswers = removeNoPref([answer1, answer2, answer3])
+        const wizardSlidesId = document.getElementById("wizard-slides-id")
+        const wizardRecommendation = document.createElement('wizard-recommendation')
+        const resDiv = document.createElement('div')
+        let filteredResults = [];
+        let count = 1;
+
+        switch (cleanedAnswers.length){
+            case 3:
+                filteredResults = myObj2.filter(product => product.tagsWithOptions.includes(cleanedAnswers[0]) && product.tagsWithOptions.includes(cleanedAnswers[1]) && product.tagsWithOptions.includes(cleanedAnswers[2]));
+                break;
+            case 2:
+                filteredResults = myObj2.filter(product => product.tagsWithOptions.includes(cleanedAnswers[0]) && product.tagsWithOptions.includes(cleanedAnswers[1]));
+                break;
+            case 1:
+                filteredResults = myObj2.filter(product => product.tagsWithOptions.includes(cleanedAnswers[0]));
+                break;
+        }
+
+        //  Determines whether any suitable results were found, if not then a message is displayed and a second filtering is done. If there is a large list
+        //  it is shortened to only show 5
+        switch(true){
+            case(filteredResults.length < 1):
+                filteredResults = getBackupfilter(cleanedAnswers)
+                if (filteredResults.length === 1) {
+                    wizardSlidesId.classList.add("wizard-slides-center");
+                }
+                if (filteredResults.length > 5){filteredResults = filteredResults.slice(0, 5);}
+                resDiv.innerText = `Whilst we weren't able to find an exact match, based on your preferences you may like these options`
+                wizardRecommendation.append(resDiv);
+                break;
+            case(filteredResults.length < 2):
+                resDiv.innerText = `Based on your selection, this watch is the perfect style for you!`
+                wizardRecommendation.append(resDiv);
+                wizardSlidesId.classList.add("wizard-slides-center");
+                break;
+            case(filteredResults.length < 6):
+                resDiv.innerText = `Based on your selection, these watches align with your sense of style!`
+                wizardRecommendation.append(resDiv);
+                break;
+            case(filteredResults.length > 5):
+                filteredResults = filteredResults.slice(0, 5);
+                resDiv.innerText = `Based on your selection, these watches align with your sense of style!`
+                wizardRecommendation.append(resDiv);
+                break;
+        }
+
+        //  Creates a product card for each option that links to its relevant checkout. A discount code is applied if one is provided. Each link is updated after recieving the relevant product id.
+        filteredResults.forEach(product => {
+            const template = createProductTemplate(product, count)
+            wizardSlidesId.appendChild(template)
+            count = count + 1;
+        })
+    }
+
+</script>
+
+{% schema %}
+    {
+    "name": "3 Question Pop Up",
+    "blocks": [
+    {
+    "type": "first_question",
+    "name": "First Question",
+    "limit": 1,
+    "settings": [
+    {
+    "type": "text",
+    "id": "first_question_q",
+    "default": "First Question",
+    "label": "Question 1"
+    },
+    {
+    "type": "text",
+    "id": "first_question_option1",
+    "default": "First Question - Answer 1",
+    "label": "Option 1"
+    },
+    {
+    "type": "text",
+    "id": "first_question_tag1",
+    "default": "Enter associated tag here",
+    "label": "Option 1 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "first_question_option2",
+    "default": "First Question - Answer 2",
+    "label": "Option 2"
+    },
+    {
+    "type": "text",
+    "id": "first_question_tag2",
+    "default": "Enter associated tag here",
+    "label": "Option 2 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "first_question_option3",
+    "default": "First Question - Answer 3",
+    "label": "Option 3"
+    },
+    {
+    "type": "text",
+    "id": "first_question_tag3",
+    "label": "Option 3 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "first_question_option4",
+    "label": "Option 4"
+    },
+    {
+    "type": "text",
+    "id": "first_question_tag4",
+    "label": "Option 4 - Associated Tag"
+    }
+    ]
+    },
+    {
+    "type": "second_question",
+    "name": "Second Question",
+    "limit": 1,
+    "settings": [
+    {
+    "type": "text",
+    "id": "second_question_q",
+    "default": "Second Question",
+    "label": "Second Question"
+    },
+    {
+    "type": "text",
+    "id": "second_question_option1",
+    "default": "Second Question - Answer 1",
+    "label": "Option 1"
+    },
+    {
+    "type": "text",
+    "id": "second_question_tag1",
+    "default": "Enter associated tag here",
+    "label": "Option 1 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "second_question_option2",
+    "default": "Second Question - Answer 2",
+    "label": "Option 2"
+    },
+    {
+    "type": "text",
+    "id": "second_question_tag2",
+    "default": "Enter associated tag here",
+    "label": "Option 2 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "second_question_option3",
+    "label": "Option 3"
+    },
+    {
+    "type": "text",
+    "id": "second_question_tag3",
+    "default": "Enter associated tag here",
+    "label": "Option 3 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "second_question_option4",
+    "label": "Option 4"
+    },
+    {
+    "type": "text",
+    "id": "second_question_tag4",
+    "label": "Option 4 - Associated Tag"
+    }
+    ]
+    },
+    {
+    "type": "third_question",
+    "name": "Third Question",
+    "limit": 1,
+    "settings": [
+    {
+    "type": "text",
+    "id": "third_question_q",
+    "default": "Third Question",
+    "label": "Third Question"
+    },
+    {
+    "type": "text",
+    "id": "third_question_option1",
+    "default": "Third Question - Answer 1",
+    "label": "Option 1"
+    },
+    {
+    "type": "text",
+    "id": "third_question_tag1",
+    "default": "Enter associated tag here",
+    "label": "Option 1 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "third_question_option2",
+    "default": "Third Question - Answer 2",
+    "label": "Option 2"
+    },
+    {
+    "type": "text",
+    "id": "third_question_tag2",
+    "default": "Enter associated tag here",
+    "label": "Option 2 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "third_question_option3",
+    "label": "Option 3"
+    },
+    {
+    "type": "text",
+    "id": "third_question_tag3",
+    "default": "Enter associated tag here",
+    "label": "Option 3 - Associated Tag"
+    },
+    {
+    "type": "text",
+    "id": "third_question_option4",
+    "label": "Option 4"
+    },
+    {
+    "type": "text",
+    "id": "third_question_tag4",
+    "label": "Option 4 - Associated Tag"
+    }
+    ]
+    },
+    {
+    "type": "final_question",
+    "name": "Recommendations",
+    "limit": 1,
+    "settings": []
+    }
+    ],
+    "settings": [
+    {
+    "type": "select",
+    "id": "pop_up_width",
+    "options":[
+    {
+    "value": "large",
+    "label": "Large"
+    },
+    {
+    "value":"medium",
+    "label": "Medium"
+    },
+    {
+    "value":"small",
+    "label": "Small"
+    }
+    ],
+    "default": "medium",
+    "label": "Pop Up Width"
+    },
+    {
+    "type": "select",
+    "id": "button_location",
+    "options":[
+    {
+    "value": "just-left",
+    "label": "Left"
+    },
+    {
+    "value":"just-center",
+    "label": "Center"
+    },
+    {
+    "value":"just-right",
+    "label": "Right"
+    }
+    ],
+    "default": "just-center",
+    "label": "Button Location"
+    },
+    {
+    "type": "text",
+    "id": "first_question_label",
+    "default": "Q1",
+    "label": "First Label"
+    },
+    {
+    "type": "text",
+    "id": "second_question_label",
+    "default": "Q2",
+    "label": "Second Label"
+    },
+    {
+    "type": "text",
+    "id": "third_question_label",
+    "default": "Q3",
+    "label": "Third Label"
+    },
+    {
+    "type": "text",
+    "id": "fourth_question_label",
+    "default": "Q4",
+    "label": "Fourth Label"
+    },
+    {
+    "type": "text",
+    "id": "discount_code",
+    "label": "Custom Discount Code"
+    }
+    ],
+    "presets": [
+    {
+    "category": "Custom Content",
+    "name": "Pop Up - refactored"
+    }
+    ]
+    }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,23 @@
+{% comment %}
+    Renders a quiz question.
+
+    Accepts:
+    - question: the relevant block.settings.question
+    - tag: the relevant block.settings.tag
+    - name: the input name for identifying
+    - class: the classes
+
+    Usage:
+{% render 'quiz-question', question: block.settings.question, tag: block.settings.tag, name: name, class: class %}
+{% endcomment %}
+
+
+<div>
+    <div class="wizard-field">
+        <label class="wizard-label">
+            {{ question }}
+        </label>
+        <input type="radio" value="{{ tag }}" name={{name}} class={{ class }}>
+    </div>
+    <hr class="questions-line">
+</div>

@@ -1,0 +1,21 @@
+{% comment %}
+    Renders the quiz heading blocks.
+
+    Accepts:
+    - label:
+    - width:
+    - number
+
+    Usage:
+{% render 'quiz-title-bar',label: width: , number: %}
+{% endcomment %}
+
+<div class="wizard-step">
+    <p>
+        {{ label }}
+    </p>
+    <div class="{{ width }} wizard-bullet">
+        <span>{{ number }}</span>
+    </div>
+    <div class="wizard-check fas fa-check"></div>
+</div>
